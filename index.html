@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Blog Platform</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <div class="container header-container">
+        <h1>My Personal Blog</h1>
+        <nav>
+          <button onclick="showSection('home')" class="nav-btn active">
+            Home
+          </button>
+          <button onclick="showSection('admin')" class="nav-btn">
+            Admin Panel
+          </button>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container">
+      <section id="home-section" class="section-content">
+        <h2>Latest Blog Posts</h2>
+        <div id="posts-container" class="posts-grid"></div>
+      </section>
+
+      <section id="admin-section" class="section-content" style="display: none">
+        <h2>Admin Panel - Manage Posts</h2>
+
+        <div class="admin-wrapper">
+          <form id="post-form" class="admin-form">
+            <input type="hidden" id="edit-index" value="" />
+            <h3>Create / Edit Post</h3>
+            <div class="form-group">
+              <label for="post-title">Blog Title</label>
+              <input
+                type="text"
+                id="post-title"
+                required
+                placeholder="Enter post title..."
+              />
+            </div>
+            <div class="form-group">
+              <label for="post-author">Author Name</label>
+              <input
+                type="text"
+                id="post-author"
+                required
+                placeholder="Author name..."
+              />
+            </div>
+            <div class="form-group">
+              <label for="post-content">Blog Content</label>
+              <textarea
+                id="post-content"
+                rows="5"
+                required
+                placeholder="Write your blog content here..."
+              ></textarea>
+            </div>
+            <button type="submit" id="save-btn" class="btn primary-btn">
+              Publish Post
+            </button>
+            <button
+              type="button"
+              id="cancel-btn"
+              class="btn secondary-btn"
+              style="display: none"
+              onclick="resetForm()"
+            >
+              Cancel Edit
+            </button>
+          </form>
+
+          <div class="admin-posts-list">
+            <h3>All Existing Posts</h3>
+            <div id="admin-posts-table"></div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
